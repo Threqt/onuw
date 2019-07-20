@@ -2803,7 +2803,8 @@ async def log(loglevel, text):
     with open(LOG_FILE, 'a', encoding='utf-8') as f:
         f.write("[{}] {}\n".format(datetime.now(), logmsg))
     if loglevel >= MIN_LOG_LEVEL:
-        await client.send_message(client.get_channel(DEBUG_CHANNEL), logmsg)
+        channel = client.get_channel(DEBUG_CHANNEL)
+        await channel.send_message(logmsg)
 
 def balance_roles(massive_role_list, default_role='villager', num_players=-1):
     if num_players == -1:
