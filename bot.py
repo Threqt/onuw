@@ -54,7 +54,7 @@ def get_jsonparsed_data(url):
     return json.loads(data), data
 
 def load_language(language):
-    file = 'lang/{}.json'.format(language)
+    file = '{}.json'.format(language)
     if not os.path.isfile(file):
         file = 'lang/en.json'
         print("Could not find language file {}.json, fallback on en.json".format(language))
